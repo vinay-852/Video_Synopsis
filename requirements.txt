@@ -1,0 +1,9 @@
+supervision
+git+https://github.com/THU-MIG/yolov10.git
+deep-sort-realtime
+opencv-python-headless
+absl-py
+torch
+tqdm
+requests
+ipython

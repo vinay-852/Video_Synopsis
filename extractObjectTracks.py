@@ -94,7 +94,7 @@ def extract_object_tracks(model_file, video_file, output_file, conf_threshold, t
 
 # Example usage of the function with keyframe selection
 model_file = "weights/yolov10l.pt"
-video_file = "/content/dataset/2018-05-16.14-25-01.14-30-01.school.G639.r13.avi"
+video_file = "dataset/2018-05-16.14-25-01.14-30-01.school.G639.r13.avi"
 output_file = "output_tracked_keyframes.mp4"
 conf_threshold = 0.5
 frame_diff_threshold = 5  # Set a threshold for keyframe selection

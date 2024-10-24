@@ -57,5 +57,5 @@ def generate_background(video_file, output_file='background.jpg', method='median
     print(f"Background image saved as {output_file}")
 
 # Example usage:
-video_file = '/content/dataset/2018-05-16.14-25-01.14-30-01.school.G639.r13.avi'  # Replace with the path to your video file
+video_file = 'dataset/2018-05-16.14-25-01.14-30-01.school.G639.r13.avi'  # Replace with the path to your video file
 generate_background(video_file, output_file='background.jpg', method='median', num_frames=30)

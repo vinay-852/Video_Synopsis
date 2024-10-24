@@ -3,7 +3,9 @@ from typing import List
 import torch
 from text_retriever import text_retriever
 from ultralytics import YOLOv10
+from download_file import download_file
 
+download_file("https://github.com/jameslahm/yolov10/releases/download/v1.0/yolov10l.pt","../weights")
 # Load YOLO model and COCO classes
 def load_yolo_model(model_file, class_file="coco.names"):
     """

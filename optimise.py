@@ -253,7 +253,7 @@ def simulated_annealing(database, initial_temperature=1000, cooling_rate=0.995, 
 
 # Main script to load the CSV and run simulated annealing
 if __name__ == "__main__":
-    csv_file = '/content/object_tracks.csv'  # Replace with the path to your CSV file
+    csv_file = 'object_tracks.csv'  # Replace with the path to your CSV file
     tracking_database = load_tracking_database(csv_file)
 
     # Group the tracks by Track ID
@@ -269,7 +269,7 @@ if __name__ == "__main__":
 
     # Convert back to DataFrame for saving or further processing
     optimized_df = pd.DataFrame(optimized_data)
-    optimized_df.to_csv('/content/optimized_person_tracks.csv', index=False)
+    optimized_df.to_csv('optimized_person_tracks.csv', index=False)
 
     print("Optimized Person Tracking Data Saved to 'optimized_person_tracks.csv'")
     print(optimized_df.head())

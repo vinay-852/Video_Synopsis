@@ -133,9 +133,9 @@ def generate_video_synopsis(bg_image_path, csv_file, crops_dir, output_dir, vide
         print(f"Video saved to {video_output}.")
 
 # Example usage
-bg_image_path = "/content/background.jpg"
-csv_file = "/content/optimized_person_tracks.csv"
-crops_dir = "/content"
+bg_image_path = "background.jpg"
+csv_file = "optimized_person_tracks.csv"
+crops_dir = ""
 output_dir = "synopsis_frames"
 video_output = "synopsis_video.mp4"  # Set to None if you don't need a video output
 
