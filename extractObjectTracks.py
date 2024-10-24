@@ -1,5 +1,6 @@
 from Components.preprocessing import *
 from Components.yoloObjectDetection import *
+from Components.deepSort import *
 
 
 def extract_object_tracks(model_file, video_file, output_file, conf_threshold, threshold):
