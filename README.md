@@ -1,13 +1,13 @@
-# Video Processing and Analysis Toolkit
-
-This repository provides a comprehensive toolkit designed for efficient video processing and analysis. The toolkit includes features such as background generation, object detection, video synopsis, and more, making it ideal for research, surveillance, or general video analysis projects.
+# Video Processing and Analysis Toolkit for Surveillance
+---
+This repository provides a comprehensive toolkit designed for efficient video processing and analysis, specifically tailored for surveillance applications. The toolkit includes features such as background generation, object detection, video synopsis, and more, making it ideal for research, security, and monitoring projects.
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
   - [Generate Background](#generate-background)
-  - [Download Dataset](#download-dataset)
+  - [Download MEVID Dataset](#download-mevid-dataset)
   - [Play Video](#play-video)
   - [Preprocess Video](#preprocess-video)
   - [Generate Video Synopsis](#generate-video-synopsis)
@@ -20,7 +20,7 @@ This repository provides a comprehensive toolkit designed for efficient video pr
 
 ## Installation
 
-To get started with the toolkit, follow the steps below:
+To set up the surveillance toolkit, follow these steps:
 
 1. Clone the repository:
    ```bash
@@ -28,20 +28,21 @@ To get started with the toolkit, follow the steps below:
    cd Video_Synopsis
    ```
 
-2. Install the Requirements:
-    ```bash
-    pip install -r requirements.txt
-    ```
-3. Generate Background for static background Video:
-    ```python
-    from Components.generate_background import generate_background
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-    generate_background('input_video.mp4', 'background.jpg', method='median', num_frames=30)
-    ```
+3. Generate Background for surveillance video:
+   ```python
+   from Components.generate_background import generate_background
+
+   generate_background('surveillance_video.mp4', 'background.jpg', method='median', num_frames=30)
+   ```
 
 ## Requirements
 
-The following packages are required to run the toolkit:
+The following Python packages are needed for the surveillance video toolkit:
 
 ```markdown
 supervision
@@ -55,9 +56,9 @@ requests
 ipython
 ```
 
-## Download Dataset
+## Download MEVID Dataset
 
-Download a dataset of video files using the text_retriever and download_file functions in text_retriever.py and download_file.py:
+To download the **MEVID** dataset, use the `text_retriever` and `download_file` functions:
 
 ```python
 from Components.text_retriever import text_retriever
@@ -69,42 +70,42 @@ for url in urls:
     download_file(url, "dataset")
 ```
 
-## Preprocess Video
+## Preprocess Surveillance Video
 
-Initialize video preprocessing using the initialize_video function in preprocessing.py:
+Preprocess the video for analysis using the `initialize_video` function:
 
 ```python
 from Components.preprocessing import initialize_video
 
-video_cap, writer, total_frames, frame_width, frame_height = initialize_video('input_video.mp4', 'output_video.mp4')
+video_cap, writer, total_frames, frame_width, frame_height = initialize_video('surveillance_video.mp4', 'output_video.mp4')
 ```
 
-## Extract Object Tracks
+## Extract Object Tracks from Surveillance Video
 
-Extract object tracks from a video using the extract_object_tracks function:
+Extract tracks for moving objects (people, vehicles, etc.) using `extract_object_tracks`:
 
 ```python
 from extractObjectTracks import extract_object_tracks
 
-extract_object_tracks('model_file.pth', 'input_video.mp4', 'output_tracks.csv', conf_threshold=0.5, threshold=0.3)
+extract_object_tracks('model_file.pth', 'surveillance_video.mp4', 'output_tracks.csv', conf_threshold=0.5, threshold=0.3)
 ```
 
-## Calculate Area and Velocity
+## Calculate Area and Velocity of Objects
 
-Calculate the area and velocity of object tracks using the calculate_area_velocity_tubes function:
+Calculate the area and velocity of moving objects from extracted tracks:
 
 ```python
 from calculate_area_velocity_tubes import calculate_area_velocity_tubes
 
 input_csv = 'object_tracks.csv'
-output_csv = 'object_tracks_with_area_velocity_tubes.csv'
+output_csv = 'object_tracks_with_area_velocity.csv'
 
 calculate_area_velocity_tubes(input_csv, output_csv)
 ```
 
-## Optimize Tracks
+## Optimize Object Tracks for Video Synopsis
 
-Optimize object tracks using the simulated_annealing function:
+Optimize the object tracks for generating an efficient video synopsis:
 
 ```python
 from optimise import simulated_annealing
@@ -112,17 +113,18 @@ from optimise import simulated_annealing
 optimized_tracks = simulated_annealing(database, initial_temperature=1000, cooling_rate=0.995, mutation_rate=0.1, max_generations=100)
 ```
 
-## Generate Video Synopsis
+## Generate Video Synopsis for Surveillance Footage
 
-Generate a video synopsis using the generate_video_synopsis function:
+Create a compressed video synopsis that highlights key activity from the surveillance video:
 
 ```python
 from videoSynopsis import generate_video_synopsis
 
-generate_video_synopsis('background.jpg', 'optimized_person_tracks.csv', 'crops_dir', 'synopsis_frames', video_output='synopsis_video.mp4', fps=30, max_objects_per_frame=4)
+generate_video_synopsis('background.jpg', 'optimized_object_tracks.csv', 'crops_dir', 'synopsis_frames', video_output='synopsis_video.mp4', fps=30, max_objects_per_frame=4)
 ```
 
-## Contributing
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+This function will create a time-compressed surveillance video that highlights key actions, enabling efficient review of long surveillance footage.
 
-Feel free to customize the [README.md](README.md) file as needed.
+## Contributing
+
+We welcome contributions! If you encounter bugs or have suggestions for improvements, feel free to submit a pull request or open an issue.
